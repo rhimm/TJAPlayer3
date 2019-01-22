@@ -51,8 +51,9 @@ namespace TJAPlayer3
 				{
 					Drums.bAutoPlay[ i ] = bIsAutoPlay[ i ];
 				}
-				Drums.bTight = TJAPlayer3.ConfigIni.bTight;
-				for ( int i = 0; i < 3; i++ )
+                Drums.bTight = TJAPlayer3.ConfigIni.bTight;
+
+                for ( int i = 0; i < 3; i++ )
 				{
 					Drums.bSudden[ i ] = TJAPlayer3.ConfigIni.bSudden[ i ];
 					Drums.bHidden[ i ] = TJAPlayer3.ConfigIni.bHidden[ i ];
@@ -62,7 +63,7 @@ namespace TJAPlayer3
 					Drums.bLight[ i ] = TJAPlayer3.ConfigIni.bLight[ i ];
 					Drums.bLeft[ i ] = TJAPlayer3.ConfigIni.bLeft[ i ];
 					Drums.f譜面スクロール速度[ i ] = ( (float) ( TJAPlayer3.ConfigIni.n譜面スクロール速度[ i ] + 1 ) ) * 0.5f;
-				}
+                }
 				Drums.eDark = TJAPlayer3.ConfigIni.eDark;
 				Drums.n演奏速度分子 = TJAPlayer3.ConfigIni.n演奏速度;
 				Drums.n演奏速度分母 = 20;
@@ -91,7 +92,7 @@ namespace TJAPlayer3
                 {
                     Drums.Dan_C[i] = danC[i];
                 }
-			}
+            }
 		}
 		#endregion
 		#region [ t演奏結果を格納する_太鼓() ]
@@ -122,7 +123,7 @@ namespace TJAPlayer3
 					Drums.bAutoPlay[ i ] = TJAPlayer3.ConfigIni.b太鼓パートAutoPlay;
 				}
 				Drums.bTight = TJAPlayer3.ConfigIni.bTight;
-				for ( int i = 0; i < 3; i++ )
+                for ( int i = 0; i < 3; i++ )
 				{
 					Drums.bSudden[ i ] = TJAPlayer3.ConfigIni.bSudden[ i ];
 					Drums.bHidden[ i ] = TJAPlayer3.ConfigIni.bHidden[ i ];
@@ -132,7 +133,7 @@ namespace TJAPlayer3
 					Drums.bLight[ i ] = TJAPlayer3.ConfigIni.bLight[ i ];
 					Drums.bLeft[ i ] = TJAPlayer3.ConfigIni.bLeft[ i ];
 					Drums.f譜面スクロール速度[ i ] = ( (float) ( TJAPlayer3.ConfigIni.n譜面スクロール速度[ i ] + 1 ) ) * 0.5f;
-				}
+                }
 				Drums.eDark = TJAPlayer3.ConfigIni.eDark;
 				Drums.n演奏速度分子 = TJAPlayer3.ConfigIni.n演奏速度;
 				Drums.n演奏速度分母 = 20;
@@ -150,7 +151,7 @@ namespace TJAPlayer3
 				Drums.最終更新日時 = DateTime.Now.ToString();
 				Drums.Hash = CScoreIni.t演奏セクションのMD5を求めて返す( Drums );
                 Drums.fゲージ = (float)this.actGauge.db現在のゲージ値[ 0 ];
-			}
+            }
 		}
 		#endregion
 
