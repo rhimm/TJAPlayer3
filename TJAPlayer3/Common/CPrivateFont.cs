@@ -311,7 +311,13 @@ namespace TJAPlayer3
             // 縁取りの縁のサイズは、とりあえずフォントの大きさの1/4とする
             //int nEdgePt = (bEdge)? _pt / 4 : 0;
             //int nEdgePt = (bEdge) ? (_pt / 3) : 0; // 縁取りが少なすぎるという意見が多かったため変更。 (AioiLight)
-            int nEdgePt = (bEdge) ? (10 * _pt / TJAPlayer3.Skin.Font_Edge_Ratio) : 0; //SkinConfigにて設定可能に(rhimm)
+            int nEdgePt;
+            if(TJAPlayer3.Skin.Font_Edge_Ratio == 0)
+            {
+                nEdgePt = 0;
+            }
+            else
+                nEdgePt = (bEdge) ? (10 * _pt / TJAPlayer3.Skin.Font_Edge_Ratio) : 0; //SkinConfigにて設定可能に(rhimm)
 
             // 描画サイズを測定する
             Size stringSize = System.Windows.Forms.TextRenderer.MeasureText( drawstr, this._font, new Size( int.MaxValue, int.MaxValue ),
@@ -556,7 +562,13 @@ namespace TJAPlayer3
 
                 // 縁取りを描画する
                 //int nEdgePt = (_pt / 3); // 縁取りをフォントサイズ基準に変更
-                int nEdgePt = (10 * _pt / TJAPlayer3.Skin.Font_Edge_Ratio_Vertical); // SkinConfigにて設定可能に(rhimm)
+                int nEdgePt;
+                if(TJAPlayer3.Skin.Font_Edge_Ratio_Vertical == 0)
+                {
+                    nEdgePt = 0;
+                }
+                else
+                    nEdgePt = (10 * _pt / TJAPlayer3.Skin.Font_Edge_Ratio_Vertical); // SkinConfigにて設定可能に(rhimm)
                 Pen pV = new Pen(edgeColor, nEdgePt);
                 pV.LineJoin = System.Drawing.Drawing2D.LineJoin.Round;
                 gV.DrawPath(pV, gpV);
