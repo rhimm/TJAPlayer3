@@ -2239,13 +2239,11 @@ namespace TJAPlayer3
                             #region Font
                             else if (strCommand == nameof(Font_Edge_Ratio)) //Config画面や簡易メニューのフォントについて(rhimm)
                             {
-                                if (int.Parse(strParam) > 0)
-                                    Font_Edge_Ratio = int.Parse(strParam);
+                                Font_Edge_Ratio = int.Parse(strParam);
                             }
                             else if (strCommand == nameof(Font_Edge_Ratio_Vertical)) //TITLEやSUBTITLEなど、縦に書かれることのあるフォントについて(rhimm)
                             {
-                                if (int.Parse(strParam) > 0)
-                                    Font_Edge_Ratio_Vertical = int.Parse(strParam);
+                                Font_Edge_Ratio_Vertical = int.Parse(strParam);
                             }
                             else if (strCommand == nameof(Text_Correction_XY))
                             {
