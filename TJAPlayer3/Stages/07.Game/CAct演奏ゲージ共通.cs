@@ -549,17 +549,7 @@ namespace TJAPlayer3
         protected CCounter ct炎;
         protected CCounter ct虹アニメ;
 	    protected CCounter ct虹透明度;
-        //protected CTexture txゲージ;
-        //      protected CTexture txゲージ背景;
-        //protected CTexture txゲージ2P;
-        //      protected CTexture txゲージ背景2P;
-        //      protected CTexture tx魂;
-        //      protected CTexture tx炎;
-        //      protected CTexture tx魂花火;
-        //      protected CTexture tx音符;
         protected CTexture[] txゲージ虹 = new CTexture[ 12 ];
         protected CTexture[] txゲージ虹2P = new CTexture[ 12 ];
-        //protected CTexture txゲージ線;
-        //protected CTexture txゲージ線2P;
     }
 }　

@@ -1022,6 +1022,7 @@ namespace TJAPlayer3
                                     SongSelect_Auto_Y[i] = int.Parse(strSplit[i]);
                                 }
                             }
+
                             else if (strCommand == "SongSelect_ForeColor_JPOP")
                             {
                                 SongSelect_ForeColor_JPOP = ColorTranslator.FromHtml(strParam);
@@ -1052,8 +1053,9 @@ namespace TJAPlayer3
                             }
                             else if (strCommand == nameof(SongSelect_ForeColor_Namco))
                             {
-                                SongSelect_ForeColor_GameMusic = ColorTranslator.FromHtml(strParam);
+                                SongSelect_ForeColor_Namco = ColorTranslator.FromHtml(strParam);
                             }
+
                             else if (strCommand == "SongSelect_BackColor_JPOP")
                             {
                                 SongSelect_BackColor_JPOP = ColorTranslator.FromHtml(strParam);
@@ -1086,6 +1088,26 @@ namespace TJAPlayer3
                             {
                                 SongSelect_BackColor_Namco = ColorTranslator.FromHtml(strParam);
                             }
+
+                            else if (strCommand == nameof(SongSelect_ForeColor))    //ジャンルなしの時の色
+                            {
+                                SongSelect_ForeColor = ColorTranslator.FromHtml(strParam);
+                            }
+                            else if (strCommand == nameof(SongSelect_BackColor))    //ジャンルなしの時の色
+                            {
+                                SongSelect_BackColor = ColorTranslator.FromHtml(strParam);
+                            }
+
+                            else if (strCommand == nameof(SongSelect_NowSelect_ForeColor))    //今選択している曲の色
+                            {
+                                SongSelect_NowSelect_ForeColor = ColorTranslator.FromHtml(strParam);
+                            }
+                            else if (strCommand == nameof(SongSelect_NowSelect_BackColor))    //今選択している曲の色
+                            {
+                                SongSelect_NowSelect_BackColor = ColorTranslator.FromHtml(strParam);
+                            }
+
+
                             else if (strCommand == nameof(SongSelect_CorrectionX_Chara))
                             {
                                 SongSelect_CorrectionX_Chara = strParam.Split(',').ToArray();
@@ -1311,6 +1333,11 @@ namespace TJAPlayer3
                             {
                                 if (int.Parse(strParam) > 0)
                                     Game_Chara_Balloon_Delay = int.Parse(strParam);
+                            }
+                            else if (strCommand == nameof(Game_Chara_Balloon_FadeOut))
+                            {
+                                if (int.Parse(strParam) > 0)
+                                    Game_Chara_Balloon_FadeOut = int.Parse(strParam);
                             }
                             // パターン数の設定はTextureLoader.csで反映されます。
                             else if (strCommand == "Game_Chara_Motion_Normal")
@@ -1617,6 +1644,10 @@ namespace TJAPlayer3
                                 {
                                     Game_Taiko_Combo_Text_Size[i] = int.Parse(strSplit[i]);
                                 }
+                            }
+                            else if (strCommand == nameof(Game_Taiko_Combo_Ex_IsJumping))
+                            {
+                                Game_Taiko_Combo_Ex_IsJumping = C変換.bONorOFF(strParam[0]);
                             }
                             #endregion
                             #region Gauge
@@ -2427,6 +2458,12 @@ namespace TJAPlayer3
         public Color SongSelect_BackColor_Classic = ColorTranslator.FromHtml("#875600");
         public Color SongSelect_BackColor_GameMusic = ColorTranslator.FromHtml("#412080");
         public Color SongSelect_BackColor_Namco = ColorTranslator.FromHtml("#980E00");
+
+        public Color SongSelect_ForeColor = ColorTranslator.FromHtml("#FFFFFF");              //ジャンルなしの時の色
+        public Color SongSelect_BackColor = ColorTranslator.FromHtml("#000000");              //ジャンルなしの時の色
+        public Color SongSelect_NowSelect_ForeColor = ColorTranslator.FromHtml("#FFFFFF");    //今選択している曲の色
+        public Color SongSelect_NowSelect_BackColor = ColorTranslator.FromHtml("#000000");    //今選択している曲の色
+
         public string[] SongSelect_CorrectionX_Chara = { "ここにX座標を補正したい文字をカンマで区切って記入" };
         public string[] SongSelect_CorrectionY_Chara = { "ここにY座標を補正したい文字をカンマで区切って記入" };
         public int[] SongSelect_CorrectionX_Chara_Value = new int[] { 0 };
@@ -2481,6 +2518,7 @@ namespace TJAPlayer3
         public int Game_Chara_Beat_GoGo = 2;
         public int Game_Chara_Balloon_Timer = 28;
         public int Game_Chara_Balloon_Delay = 500;
+        public int Game_Chara_Balloon_FadeOut = 84;
         #endregion
         #region Dancer
         public int[] Game_Dancer_X = new int[] { 640, 430, 856, 215, 1070 };
@@ -2551,6 +2589,7 @@ namespace TJAPlayer3
         public int[] Game_Taiko_Combo_Text_X = new int[] { 268, 268 };
         public int[] Game_Taiko_Combo_Text_Y = new int[] { 295, 472 };
         public int[] Game_Taiko_Combo_Text_Size = new int[] { 100, 50 };
+        public bool Game_Taiko_Combo_Ex_IsJumping = true;
         #endregion
         #region Gauge
         public int[] Game_Gauge_X = new int[] { 492, 492 };
